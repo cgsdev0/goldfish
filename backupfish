@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd "${0%/*}/fishing-data"
+
+git add -A
+git commit -am "$(date)"

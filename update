@@ -1,0 +1,73 @@
+#!/bin/bash
+
+cd /root/bash-stack
+
+# obliterate
+git add -A && git stash && git stash drop
+
+git pull origin main --rebase
+
+cd ..
+./real-eyes-realize-real-lies
+
+cd wrizzle
+git pull origin main --rebase
+
+cd ..
+
+cd first
+git pull origin main --rebase
+
+cd ..
+
+cd redemption-arc
+git pull origin main --rebase
+
+cd ..
+
+cd bash-connect4
+git pull origin main --rebase
+
+cd ..
+
+cd ludum-dare-54
+git pull origin postjam-server --rebase
+
+cd ..
+
+cd issue-roulette
+git pull origin main --rebase
+
+cd ..
+
+cd bingo
+git pull origin main --rebase
+
+cd ..
+
+cd copfish
+git pull origin main --rebase
+
+cd ..
+
+cd meme-maker-pro-2003-btw
+git pull origin main --rebase
+
+cd ..
+
+cd consulting
+git pull origin main --rebase
+
+cd ..
+
+cd robocop2
+git pull origin main --rebase
+
+cd ..
+
+cd bash-irc
+git pull origin main --rebase
+
+cd ..
+
+docker-compose up -d --build --remove-orphans

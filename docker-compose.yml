@@ -1,0 +1,130 @@
+version: "3.7"
+
+services:
+  caddy:
+    build:
+      context: caddy
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "6697:6697"
+      - "443:443/udp"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile
+      - $PWD/caddy2.json:/etc/caddy/caddy2.json
+      - /var/log/caddy:/var/log
+      - /var/www:/var/www
+      - $PWD/site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
+    external_links:
+      - "redemption-arc:redemption-arc"
+      - "connect4:connect4"
+      - "jeopardy:jeopardy"
+      - "robocop2:robocop2"
+      - "docs:docs"
+      - "wrizzle:wrizzle"
+      - "first:first"
+      - "sounds:sounds"
+      - "ld54:ld54"
+      - "issues:issues"
+      - "memes:memes"
+      - "bingo:bingo"
+      - "copfish:copfish"
+      - "consulting:consulting"
+      - "irc:irc"
+  redemption-arc:
+    build:
+      context: redemption-arc
+    restart: always
+  irc:
+    build:
+      context: bash-irc
+    restart: always
+    ports:
+      - "6667:6667"
+  consulting:
+    build:
+      context: consulting
+    restart: always
+  bingo:
+    build:
+      context: bingo
+    restart: always
+  ld54:
+    build:
+      context: ludum-dare-54/server
+    restart: always
+    volumes:
+      - ld54volume:/app/data
+  copfish:
+    environment:
+      FISH_ROOT: "/fishing-data"
+    build:
+      context: copfish
+    restart: always
+    volumes:
+      - ./fishing-data:/fishing-data
+      - fishsessions:/app/sessions
+  connect4:
+    build:
+      context: bash-connect4
+    restart: always
+    volumes:
+      - c4volume:/app/data
+      - c4volume2:/app/sessions
+  issues:
+    build:
+      context: issue-roulette
+    restart: always
+    volumes:
+      - issuesvolume:/app/sessions
+  jeopardy:
+    build:
+      context: bash-stack/examples/jeopardy-buzzer
+    restart: always
+  memes:
+    build:
+      context: meme-maker-pro-2003-btw
+    restart: always
+    volumes:
+      - memesvolume:/app/static/shared
+  docs:
+    build:
+      context: bash-stack/examples/docs
+    restart: always
+  wrizzle:
+    build:
+      context: wrizzle
+    restart: always
+  robocop2:
+    build:
+      context: robocop2
+    restart: always
+  first:
+    build:
+      context: first
+    restart: always
+    volumes:
+      - firstvolume:/app/data
+  sounds:
+    build:
+      context: sounds
+    restart: always
+
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
+  c4volume:
+  ld54volume:
+  c4volume2:
+  firstvolume:
+  issuesvolume:
+  memesvolume:
+  fishsessions:

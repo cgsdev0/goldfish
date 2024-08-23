@@ -1,0 +1,105 @@
+{
+    layer4 {
+        0.0.0.0:6697 {
+            route {
+		tls
+		proxy {
+                    upstream irc:6667
+                }
+            }
+        }
+    }
+}
+
+bash.consulting {
+	reverse_proxy consulting:3000
+	log {
+		output file /var/log/consulting_access.log
+	}
+}
+cop.fish {
+	reverse_proxy copfish:5125
+	log {
+		output file /var/log/fish_access.log
+	}
+}
+bingo.bashsta.cc {
+	reverse_proxy bingo:3000
+	log {
+		output file /var/log/bingo_access.log
+	}
+}
+mememakerpro2003-enterpriseedition.bashsta.cc {
+	reverse_proxy memes:3000
+	log {
+		output file /var/log/memes_access.log
+	}
+}
+github2.com {
+	reverse_proxy issues:3000
+	log {
+		output file /var/log/issues_access.log
+	}
+}
+designmentor.io {
+	root * /var/www/memes
+	file_server
+}
+arc.bashsta.cc {
+	reverse_proxy redemption-arc:3000
+	log {
+		output file /var/log/arc_access.log
+	}
+}
+ld54.badcop.games {
+	reverse_proxy ld54:3000
+	log {
+		output file /var/log/ld54_access.log
+	}
+}
+sounds.badcop.games {
+	reverse_proxy sounds:3000
+	log {
+		output file /var/log/sounds_access.log
+	}
+}
+first.bashsta.cc {
+	reverse_proxy first:3000
+	log {
+		output file /var/log/first_access.log
+	}
+}
+connect4.bashsta.cc {
+	reverse_proxy connect4:3000
+	log {
+		output file /var/log/connect4_access.log
+	}
+}
+robocop.bashsta.cc {
+	reverse_proxy robocop2:3000
+	log {
+		output file /var/log/robocop_access.log
+	}
+}
+jeopardy.bashsta.cc {
+	reverse_proxy jeopardy:3000
+	log {
+		output file /var/log/jeopardy_access.log
+	}
+}
+wrizzle.bashsta.cc {
+	reverse_proxy wrizzle:3000
+	log {
+		output file /var/log/wrizzle_access.log
+	}
+}
+create.bashsta.cc {
+	redir https://raw.githubusercontent.com/cgsdev0/bash-stack/main/bootstrap.sh
+}
+bashsta.cc, www.bashsta.cc {
+	reverse_proxy docs:3000
+	log {
+		output file /var/log/docs_access.log
+	}
+}
+

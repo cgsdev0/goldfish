@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+for link in $(find bash-stack -type l); do
+	target=$(readlink -f $link)
+	unlink "$link"
+	cp "$target" "$link"
+	echo "Real-izing $link"
+done
+
+echo "done!"

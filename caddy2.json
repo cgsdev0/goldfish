@@ -1,0 +1,730 @@
+{
+  "logging": {
+    "logs": {
+      "default": {
+        "exclude": [
+          "http.log.access.log0",
+          "http.log.access.log1",
+          "http.log.access.log10",
+          "http.log.access.log11",
+          "http.log.access.log12",
+          "http.log.access.log13",
+          "http.log.access.log2",
+          "http.log.access.log3",
+          "http.log.access.log4",
+          "http.log.access.log5",
+          "http.log.access.log6",
+          "http.log.access.log7",
+          "http.log.access.log8",
+          "http.log.access.log9"
+        ]
+      },
+      "log0": {
+        "writer": {
+          "filename": "/var/log/consulting_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log0"
+        ]
+      },
+      "log1": {
+        "writer": {
+          "filename": "/var/log/fish_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log1"
+        ]
+      },
+      "log10": {
+        "writer": {
+          "filename": "/var/log/robocop_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log10"
+        ]
+      },
+      "log11": {
+        "writer": {
+          "filename": "/var/log/jeopardy_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log11"
+        ]
+      },
+      "log12": {
+        "writer": {
+          "filename": "/var/log/wrizzle_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log12"
+        ]
+      },
+      "log13": {
+        "writer": {
+          "filename": "/var/log/docs_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log13"
+        ]
+      },
+      "log2": {
+        "writer": {
+          "filename": "/var/log/bingo_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log2"
+        ]
+      },
+      "log3": {
+        "writer": {
+          "filename": "/var/log/memes_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log3"
+        ]
+      },
+      "log4": {
+        "writer": {
+          "filename": "/var/log/issues_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log4"
+        ]
+      },
+      "log5": {
+        "writer": {
+          "filename": "/var/log/arc_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log5"
+        ]
+      },
+      "log6": {
+        "writer": {
+          "filename": "/var/log/ld54_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log6"
+        ]
+      },
+      "log7": {
+        "writer": {
+          "filename": "/var/log/sounds_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log7"
+        ]
+      },
+      "log8": {
+        "writer": {
+          "filename": "/var/log/first_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log8"
+        ]
+      },
+      "log9": {
+        "writer": {
+          "filename": "/var/log/connect4_access.log",
+          "output": "file"
+        },
+        "include": [
+          "http.log.access.log9"
+        ]
+      }
+    }
+  },
+  "apps": {
+    "http": {
+      "servers": {
+        "srv0": {
+          "listen": [
+            ":443"
+          ],
+          "routes": [
+            {
+              "match": [
+                {
+                  "host": [
+                    "mememakerpro2003-enterpriseedition.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "memes:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "sounds.badcop.games"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "sounds:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "connect4.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "connect4:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "jeopardy.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "jeopardy:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "robocop.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "robocop2:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "wrizzle.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "wrizzle:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "ld54.badcop.games"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "ld54:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "create.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "static_response",
+                          "headers": {
+                            "Location": [
+                              "https://raw.githubusercontent.com/cgsdev0/bash-stack/main/bootstrap.sh"
+                            ]
+                          },
+                          "status_code": 302
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "bingo.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "bingo:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "first.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "first:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "bash.consulting"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "consulting:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "designmentor.io"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "vars",
+                          "root": "/var/www/memes"
+                        },
+                        {
+                          "handler": "file_server",
+                          "hide": [
+                            "/etc/caddy/Caddyfile"
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "arc.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "redemption-arc:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "bashsta.cc",
+                    "www.bashsta.cc"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "docs:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "github2.com"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "issues:3000"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            },
+            {
+              "match": [
+                {
+                  "host": [
+                    "cop.fish"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "subroute",
+                  "routes": [
+                    {
+                      "handle": [
+                        {
+                          "handler": "reverse_proxy",
+                          "upstreams": [
+                            {
+                              "dial": "copfish:5125"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "terminal": true
+            }
+          ],
+          "logs": {
+            "logger_names": {
+              "arc.bashsta.cc": [
+                "log5"
+              ],
+              "bash.consulting": [
+                "log0"
+              ],
+              "bashsta.cc": [
+                "log13"
+              ],
+              "bingo.bashsta.cc": [
+                "log2"
+              ],
+              "connect4.bashsta.cc": [
+                "log9"
+              ],
+              "cop.fish": [
+                "log1"
+              ],
+              "first.bashsta.cc": [
+                "log8"
+              ],
+              "github2.com": [
+                "log4"
+              ],
+              "jeopardy.bashsta.cc": [
+                "log11"
+              ],
+              "ld54.badcop.games": [
+                "log6"
+              ],
+              "mememakerpro2003-enterpriseedition.bashsta.cc": [
+                "log3"
+              ],
+              "robocop.bashsta.cc": [
+                "log10"
+              ],
+              "sounds.badcop.games": [
+                "log7"
+              ],
+              "wrizzle.bashsta.cc": [
+                "log12"
+              ],
+              "www.bashsta.cc": [
+                "log13"
+              ]
+            },
+            "skip_hosts": [
+              "create.bashsta.cc",
+              "designmentor.io"
+            ]
+          }
+        }
+      }
+    },
+    "layer4": {
+      "servers": {
+        "srv0": {
+          "listen": [
+            "0.0.0.0:6697"
+          ],
+          "routes": [
+            {
+              "handle": [
+                {
+                  "handler": "tls"
+                },
+                {
+                  "handler": "proxy",
+                  "upstreams": [
+                    {
+                      "dial": [
+                        "irc:6667"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "tls": {
+      "certificates": {
+        "automate": [
+          "irc.badcop.live"
+        ]
+      },
+      "automation": {
+        "policies": [
+          {
+            "issuers": [
+              {
+                "module": "acme"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
