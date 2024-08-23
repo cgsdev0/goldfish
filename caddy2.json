@@ -690,7 +690,14 @@
             {
               "handle": [
                 {
-                  "handler": "tls"
+                  "handler": "tls",
+                  "connection_policies": [
+                    {
+                      "alpn": [
+                        "irc"
+                      ]
+                    }
+                  ]
                 },
                 {
                   "handler": "proxy",
